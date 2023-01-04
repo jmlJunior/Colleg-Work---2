@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <title>Cadastro de Habitantes</title>
+    <meta charset="utf-8"/>
+
+</head>
+       <header>
+           <p>******************* MUNICÍPIO FICTÍCIO *********************</p>
+           <p>--------------- CADASTRO DE HABITANTES / ELEITORES ---------------</p>
+       </header>
+
+   <style> 
+       .avisos {
+            border: 1px solid slateblue;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: rgb(255, 255, 255);
+            width: 460px;
+            height: 35px;
+            text-align: center;
+            line-height: 0.3;
+       }
+       .registros {
+            border: 1px solid slateblue;
+            padding: 8px;
+            border-radius: 5px;
+            background-color: rgb(255, 255, 255);
+            width: 300px;
+            height: 100px;
+            text-align: left;
+            line-height: 0.3;
+       }
+    </Style>
+
+  <body onload="mostFunction()">
+
+                <p>
+                Informe a idade:
+                <input type="text" id="ncadastro" autofocus="autofocus" size="5">
+                </p>
+               
+               <p>CLIQUE NO BOTÃO ABAIXO PARA FAZER UM NOVO CADASTRO</p>
+               <input type="button" id="cadastrar" name="cadastrar" value="CADASTRAR" />
+               <p id="cadastrar"></p>
+<script>
+
+        function mostFunction(){
+            document.getElementById("texto1").innerHTML="Número de habitantes: " + localStorage.getItem("NC");
+            document.getElementById("texto2").innerHTML="Número de não eleitores: " + localStorage.getItem("EN");
+            document.getElementById("texto3").innerHTML="Número de eleitores obrigatórios: " + localStorage.getItem("ES");
+            document.getElementById("texto4").innerHTML="Número de eleitores facultativos: " + localStorage.getItem("EF");
+        }
+
+var NC, Idade, ES, EN, EF;
+    NC = 0 + localStorage.getItem("NC");
+    EN = 0 + localStorage.getItem("EN");
+    ES = 0 + localStorage.getItem("ES");
+    EF = 0 + localStorage.getItem("EF");
+var button = document.getElementById("cadastrar");
+button.onclick = function cadFunction () {
+    var Idade = document.getElementById("ncadastro").value;
+    if (Idade == "" || Idade == null) {
+        document.getElementById('mostra').innerHTML="Dados inválidos!";
+    } else
+    if (Idade < 16) {
+        NC++;
+        EN++;
+        localStorage.setItem("NC", NC);
+        localStorage.setItem("EN", EN);
+        document.getElementById('mostra').innerHTML="Cadastro de não eleitor realizado com sucesso!";
+        document.getElementById("texto1").innerHTML="Número de habitantes: " + localStorage.getItem("NC");
+        document.getElementById("texto2").innerHTML="Número de não eleitores: " + localStorage.getItem("EN");
+        document.getElementById("texto3").innerHTML="Número de eleitores obrigatórios: " + localStorage.getItem("ES");
+        document.getElementById("texto4").innerHTML="Número de eleitores facultativos: " + localStorage.getItem("EF");
+        document.getElementById("ncadastro").value="";
+    }
+    if (Idade >= 18 && Idade <= 69) {
+        NC++;
+        ES++;
+        localStorage.setItem("NC", NC);
+        localStorage.setItem("ES", ES);
+        document.getElementById('mostra').innerHTML="Cadastro de elitor (obrigatório) realizado com sucesso!";
+        document.getElementById("texto1").innerHTML="Número de habitantes: " + localStorage.getItem("NC");
+        document.getElementById("texto2").innerHTML="Número de não eleitores: " + localStorage.getItem("EN");
+        document.getElementById("texto3").innerHTML="Número de eleitores obrigatórios: " + localStorage.getItem("ES");
+        document.getElementById("texto4").innerHTML="Número de eleitores facultativos: " + localStorage.getItem("EF");
+        document.getElementById("ncadastro").value="";
+    }
+    if (Idade == 16 || Idade == 17 || Idade >= 70) {
+        NC++;
+        EF++;
+        localStorage.setItem("NC", NC);
+        localStorage.setItem("EF", EF);
+        document.getElementById('mostra').innerHTML="Cadastro de eleitor (facultativo) realizado com sucesso!";
+        document.getElementById("texto1").innerHTML="Número de habitantes: " + localStorage.getItem("NC");
+        document.getElementById("texto2").innerHTML="Número de não eleitores: " + localStorage.getItem("EN");
+        document.getElementById("texto3").innerHTML="Número de eleitores obrigatórios: " + localStorage.getItem("ES");
+        document.getElementById("texto4").innerHTML="Número de eleitores facultativos: " + localStorage.getItem("EF");
+        document.getElementById("ncadastro").value=""; 
+    }
+
+}
+               </script>
+
+               <p></p>
+               A V I S O S !
+               <div class="avisos">
+                   <p id="mostra"></p>
+               </div><br />
+
+       <footer>
+               Criado por: J. Maurilio L. Junior &copy<br />
+               Data/Hora: 04-11-2021/ 18:30
+           </p>
+       </footer>
+
+<body/>
+
+<hr />
+<div class="separa">
+<div id="divhr1" class="registros">
+<p id="texto1"></p>
+<p id="texto2"></p>
+<p id="texto3"></p>
+<p id="texto4"></p>
+</div><br />
+<div id="divhr2" class="apaga">
+    <input type="button" id="limpar" value="APAGAR REGISTROS" />
+</div>
+</div>
+
+      <script>
+      var button = document.getElementById("limpar");
+      button.onclick = function limpFunction(){
+         var confirma = confirm("ATENÇÃO!" + "\nEssa ação irá apagar todos os registros!" + "\nTem certeza que deseja continuar?");
+         if (confirma == true){
+             localStorage.removeItem("NC");
+             localStorage.removeItem("EN");
+             localStorage.removeItem("ES");
+             localStorage.removeItem("EF");
+             document.location.reload(true);
+         }
+      }
+      </script>
+
+        <p>
+               <div id="data-hora"></div>
+           </p>
+           <time>
+               <script>
+                   const zeroFill = n => {
+                       return ('0' + n).slice(-2);
+                   }
+                   const interval = setInterval(() => {
+                       const now = new Date();
+                       const dataHora = zeroFill(now.getUTCDate()) + '/' + zeroFill((now.getMonth() + 1)) + '/' + now.getFullYear() + ' ' + zeroFill(now.getHours()) + ':' + zeroFill(now.getMinutes()) + ':' + zeroFill(now.getSeconds());
+                       document.getElementById('data-hora').innerHTML = dataHora;
+                   }, 1000);
+               </script>
+           </time>
+           <p>
+
+</html>

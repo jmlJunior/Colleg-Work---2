@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <title>Cadastro - Modelo Simples</title>
+    <meta charset="utf-8"/>
+
+</head>
+
+<body>
+    <p>************ MUNICÍPIO FICTÍCIO ************</p>
+    <p>--- CADASTRO DE HABITANTES / ELEITORES ---</p>
+
+    <p>Deseja realizar um novo cadastro?</p>
+    <div>
+        <input type="button" id="cadastrar" name="cadastar" value="CADASTRAR" />
+        <input type="button" id="mostrar" name="mostrar" value="MOSTRAR RESULTADO" />
+        <input type="button" id="gravar" value="SALVAR" />
+        <input type="button" id="encerrar" value="SAIR" />
+    </div>
+
+    <p id="cadastrar"></p>
+    <script>
+        var NC, Idade, ES, EN, EF;
+        NC = 0;
+        EN = 0;
+        ES = 0;
+        EF = 0;
+        var button = document.querySelector('input');
+        button.onclick = function myFunction () {
+            var Idade = prompt('Qual é a idade do morador/habitante?');
+            if (Idade == "" || Idade == null) {
+                alert('Dados inválidos!');
+            } else
+                if (Idade < 16) {
+                    NC++;
+                    EN++;
+                    alert('Cadastro realizado com sucesso!\nO numero de não eleitores é: ' + EN + '\nO número total de pessoas cadastradas até o momento é: ' + NC);
+                }
+            if (Idade >= 18 && Idade <= 69) {
+                NC++;
+                ES++;
+                alert('Cadastro realizado com sucesso!\nO numero de eleitores é: ' + ES + '\nO número total de pessoas cadastradas até o momento é: ' + NC);
+            }
+            if (Idade == 16 || Idade == 17 || Idade >= 70) {
+                NC++;
+                EF++;
+                alert('Cadastro realizado com sucesso!\nO numero de eleitores facultativos é: ' + EF + '\nO número total de pessoas cadastradas até o momento é: ' + NC);
+            }
+        }
+    </script>
+
+    <p id="mostrar"></p>
+    <script>
+        var button = document.getElementById('mostrar');
+        button.onclick = function myFunction () {
+        alert('Número de habitantes: ' + NC + '\nNúmero de não eleitores: ' + EN + '\nNúmero de eleitores obrigatórios: ' + ES + '\nNúmero de eleitores facultativos: ' + EF);
+        }
+    </script>
+
+<hr />
+    <script>
+        function myFunction () {
+        document.write('Número de habitantes: ' + NC + '\nNúmero de não eleitores: ' + EN + '\nNúmero de eleitores obrigatórios: ' + ES + '\nNúmero de eleitores facultativos: ' + EF);
+        }
+    </script>
+</body >
+
+</html >

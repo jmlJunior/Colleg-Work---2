@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <title>Cadastro de Habitantes</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="pagmodel.css">
+
+</head>
+
+   <body onload="mostFunction()">
+       <header>
+           <p>************ MUNICÍPIO FICTÍCIO ************</p>
+           <p>--- CADASTRO DE HABITANTES / ELEITORES ---</p>
+       </header>
+
+       <section>
+           <nav>
+                <p>
+                Informe somente a idade:
+                <input type="text" id="ncadastro" size="5px">
+                </p>
+               
+               <p>CLIQUE NO BOTÃO ABAIXO PARA REGISTRAR UM NOVO CADASTRO</p>
+               <input type="button" id="cadastrar" name="cadastrar" value="CADASTRAR" />
+               <p id="cadastrar"></p>
+               <script language="javascript" src="Calc.js"></script>
+
+               A V I S O S !
+               <div class="avisos">
+                   <p id="mostra"></p>
+               </div>
+           </nav>
+           <article>
+
+           </article>
+
+       </section>
+
+       <footer>
+           <p>
+               <div id="data-hora"></div>
+           </p>
+           <time>
+               <script>
+                   const zeroFill = n => {
+                       return ('0' + n).slice(-2);
+                   }
+                   const interval = setInterval(() => {
+                       const now = new Date();
+                       const dataHora = zeroFill(now.getUTCDate()) + '/' + zeroFill((now.getMonth() + 1)) + '/' + now.getFullYear() + ' ' + zeroFill(now.getHours()) + ':' + zeroFill(now.getMinutes()) + ':' + zeroFill(now.getSeconds());
+                       document.getElementById('data-hora').innerHTML = dataHora;
+                   }, 1000);
+               </script>
+           </time>
+           <p>
+               Criado por: J. Maurilio L. Junior &copy<br />
+               Data/Hora: 04-11-2021/ 18:30
+           </p>
+       </footer>
+
+<hr />
+<div class="separa">
+<div id="divhr1" class="registros">
+<p id="texto1"></p>
+<p id="texto2"></p>
+<p id="texto3"></p>
+<p id="texto4"></p>
+</div>
+<div id="divhr2" class="apaga">
+    <input type="button" id="limpar" value="APAGAR REGISTROS" />
+    <script language="javascript" src="Calc.js"></script>
+</div>
+</div>
+
+   </body>
+
+</html>
