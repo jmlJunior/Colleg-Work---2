@@ -35,17 +35,23 @@
                 if (Idade < 16) {
                     NC++;
                     EN++;
-                    alert('Cadastro realizado com sucesso!\nO numero de não eleitores é: ' + EN + '\nO número total de pessoas cadastradas até o momento é: ' + NC);
+                    alert('Cadastro realizado com sucesso!\nO numero de não eleitores é: ' + EN 
+                                                                                           + '\nO número total de pessoas cadastradas até o momento é: ' 
+                                                                                           + NC);
                 }
             if (Idade >= 18 && Idade <= 69) {
                 NC++;
                 ES++;
-                alert('Cadastro realizado com sucesso!\nO numero de eleitores é: ' + ES + '\nO número total de pessoas cadastradas até o momento é: ' + NC);
+                alert('Cadastro realizado com sucesso!\nO numero de eleitores é: ' + ES 
+                                                                                   + '\nO número total de pessoas cadastradas até o momento é: ' 
+                                                                                   + NC);
             }
             if (Idade == 16 || Idade == 17 || Idade >= 70) {
                 NC++;
                 EF++;
-                alert('Cadastro realizado com sucesso!\nO numero de eleitores facultativos é: ' + EF + '\nO número total de pessoas cadastradas até o momento é: ' + NC);
+                alert('Cadastro realizado com sucesso!\nO numero de eleitores facultativos é: ' + EF 
+                                                                                                + '\nO número total de pessoas cadastradas até o momento é: ' 
+                                                                                                + NC);
             }
         }
     </script>
@@ -54,14 +60,26 @@
     <script>
         var button = document.getElementById('mostrar');
         button.onclick = function myFunction () {
-        alert('Número de habitantes: ' + NC + '\nNúmero de não eleitores: ' + EN + '\nNúmero de eleitores obrigatórios: ' + ES + '\nNúmero de eleitores facultativos: ' + EF);
+        alert('Número de habitantes: ' + NC 
+                                       + '\nNúmero de não eleitores: ' 
+                                       + EN 
+                                       + '\nNúmero de eleitores obrigatórios: ' 
+                                       + ES 
+                                       + '\nNúmero de eleitores facultativos: ' 
+                                       + EF);
         }
     </script>
 
 <hr />
     <script>
         function myFunction () {
-        document.write('Número de habitantes: ' + NC + '\nNúmero de não eleitores: ' + EN + '\nNúmero de eleitores obrigatórios: ' + ES + '\nNúmero de eleitores facultativos: ' + EF);
+        document.write('Número de habitantes: ' + NC 
+                                                + '\nNúmero de não eleitores: ' 
+                                                + EN 
+                                                + '\nNúmero de eleitores obrigatórios: ' 
+                                                + ES 
+                                                + '\nNúmero de eleitores facultativos: ' 
+                                                + EF);
         }
     </script>
 </body >
